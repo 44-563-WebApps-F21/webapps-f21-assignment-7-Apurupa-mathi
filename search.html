@@ -33,9 +33,9 @@
             index = index - 1;
             id = ids[index];
             if (index == animalLocation) {
-                document.getElementById(id).src = "Hole.jpg";
-            } else {
                 document.getElementById(id).src = "lion.jpg";
+            } else {
+                document.getElementById(id).src = "Hole.jpg";
             }
             triesCount++;
             document.getElementById("tries").innerHTML = "Number of tries is " + triesCount;
@@ -77,6 +77,18 @@
             var distance = Math.abs(x2 - x1) + Math.abs(y2 - y1);
             return distance;
         }
+
+        function reset() {
+            triesCount = 0;
+            animalLocation = Math.round(Math.random() * (23 - 0) + 0);
+            document.getElementById("tries").innerHTML = "Number of tries is zero";
+            distanceOfAnimal = "unknown"
+            document.getElementById("distance").innerHTML = "Distance is " + distanceOfAnimal;
+            for (var i = 0; i < 24; i++) {
+
+                document.getElementById(ids[i]).src = "tree.jpg";
+            }
+        }
     </script>
 </head>
 
@@ -91,6 +103,8 @@
                 style="background-color: black;color: azure;">Number of tries is zero.</p>
             <p class="btn shadow-lg p-3 mb-5 rounded col-md-3 hover" id="distance"
                 style="background-color: black;color: azure;">Distance is unknown.</p>
+            <p class="btn shadow-lg p-3 mb-5 rounded col-md-3 hover" onclick="reset()"
+                style="background-color: black;color: azure;">Reset</p>
         </div>
 
         <div class="row justify-content-center">
